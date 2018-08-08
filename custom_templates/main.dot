@@ -1,6 +1,6 @@
 <nav class="docs-nav">
     <a href="https://www.bitwiseinvestments.com">Home</a>
-    <a href="https://developers.bitwiseinvestments.com/docs">Docs</a>
+    <a class="active" href="https://developers.bitwiseinvestments.com/documentation">Documentation</a>
 </nav>
 <h1 id="{{=data.title_prefix}}">{{=data.api.info.title}} {{=data.version}}</h1>
 
