@@ -1,0 +1,13 @@
+{ 
+  "language_tabs": [ { "shell": "Shell" }, { "javascript": "JavaScript" }, { "ruby": "Ruby" }],
+  "verbose": true,
+  "discovery": true,
+  "user_templates": "./custom_templates",
+  "language_clients": [{ 'shell': 'curl' }, { 'node': 'request' }, { 'java': 'unirest' }],
+  "tagGroups": [
+    {
+      "title": "Indexes",
+      "tags": ["Indexes"]
+    }
+  ]
+}

@@ -1,14 +1,24 @@
 require 'rest-client'
 require 'json'
+{{ var queryParameters = []; }}
+{{ var queryString = ""; }}
+{{ for (var r of data.parameters) { 
+    if (r.in == "query") {
+        queryParameters.push(r.name + "=" + r.exampleValues.object);
+    }
+  }
+  if (queryParameters.length > 0) {
+    queryString = "?" + queryParameters.join("&");
+  }
+}}
 
 {{?data.allHeaders.length}}headers = {
+  'Authorization': YOUR_API_KEY,
 {{~data.allHeaders :p:index}}  '{{=p.name}}' => {{=p.exampleValues.json}}{{?index < data.allHeaders.length-1}},{{?}}
 {{~}}}{{?}}
-
-result = RestClient.{{=data.method.verb}} '{{=data.url}}',
-  params: {
-  {{~ data.requiredParameters :p:index}}'{{=p.name}}' => '{{=p.safeType}}'{{? data.requiredParameters.length-1 != index }},{{?}}
-{{~}}}{{? data.allHeaders.length}}, headers: headers
-{{?}}
+result = RestClient.{{=data.method.verb}}(
+  '{{=data.url}}{{=queryString}}'{{? data.allHeaders.length}}, 
+  headers: headers
+{{?}})
 
 p JSON.parse(result)

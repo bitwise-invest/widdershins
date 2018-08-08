@@ -1,4 +1,19 @@
 # You can also use wget
-curl -X {{=data.methodUpper}} {{=data.url}}{{=data.requiredQueryString}}{{?data.allHeaders.length}} \{{?}}
-{{~data.allHeaders :p:index}}  -H '{{=p.name}}: {{=p.exampleValues.object}}'{{?index < data.allHeaders.length-1}} \{{?}}
+{{ var queryParameters = []; }}
+{{ var queryString = ""; }}
+{{ for (var r of data.parameters) { 
+    if (r.in == "query") {
+        queryParameters.push(r.name + "=" + r.exampleValues.object);
+    }
+  }
+  if (queryParameters.length > 0) {
+    queryString = "?" + queryParameters.join("&");
+  }
+}}
+
+export YOUR_API_KEY="YOUR_API_KEY_HERE"
+
+curl -X {{=data.methodUpper}} "{{=data.url}}{{=queryString}}"\
+{{~data.allHeaders :p:index}}  -H "Authorization: $YOUR_API_KEY" \
+  -H "{{=p.name}}: {{=p.exampleValues.object}}"{{?index < data.allHeaders.length-1}} \{{?}}
 {{~}}
