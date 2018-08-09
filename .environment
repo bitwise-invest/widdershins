@@ -1,9 +1,9 @@
 { 
-  "language_tabs": [ { "shell": "Shell" }, { "javascript": "JavaScript" }, { "ruby": "Ruby" }],
+  "language_tabs": [ { "shell": "Shell" }, { "javascript": "JavaScript" }, { "python": "Python" }, { "ruby": "Ruby" }],
   "verbose": true,
   "discovery": true,
   "user_templates": "./custom_templates",
-  "language_clients": [{ 'shell': 'curl' }, { 'node': 'request' }, { 'java': 'unirest' }],
+  "language_clients": [{ 'shell': 'curl' }, { 'node': 'request' }, { 'python': 'requests' }],
   "tagGroups": [
     {
       "title": "Indexes",

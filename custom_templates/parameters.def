@@ -1,9 +1,24 @@
 <h3 id="{{=data.operationUniqueSlug}}-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-{{~ data.parameters :p}}|{{=p.name}}|{{=p.in}}|{{=p.safeType}}|{{=p.required}}|{{=p.shortDesc || 'none'}}|
+<ul class="parameters-list">
+{{~ data.parameters :p}}
+
+<li>
+    <div>
+        <h3>
+            {{=p.name}}
+
+            <span>
+                {{=p.required ? 'required': 'optional'}} {{=p.safeType}}, provided in {{=p.in}} 
+            </span>
+        </h3>
+    </div>
+    <p>
+        {{=p.shortDesc || 'none'}}
+    </p>
+</li>
 {{~}}
+</ul>
 
 {{? data.longDescs }}
 #### Detailed descriptions

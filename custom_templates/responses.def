@@ -5,7 +5,6 @@
 {{~}}
 
 {{? data.responseSchemas }}
-> Example responses
 
 {{= data.utils.getResponseExamples(data) }}
 {{?}}

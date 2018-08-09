@@ -1,10 +1,11 @@
-<nav class="docs-nav">
-    <a href="https://www.bitwiseinvestments.com">Home</a>
-    <a class="active" href="https://developers.bitwiseinvestments.com/documentation">Documentation</a>
-</nav>
 <h1 id="{{=data.title_prefix}}">{{=data.api.info.title}} {{=data.version}}</h1>
 
-> Scroll down for {{? data.header.language_tabs.length}}code samples, {{?}}example requests and responses.{{? data.header.language_tabs.length}} Select a language for code samples from the tabs above or the mobile navigation menu.{{?}}
+<blockquote>
+<p class="regular">
+Scroll down for {{? data.header.language_tabs.length}}code samples, {{?}}example requests and responses.{{? data.header.language_tabs.length}} Select a language for code samples from the tabs above or the mobile navigation menu.{{?}}
+</p>
+</blockquote>
+
 
 {{? data.api.info.description}}{{=data.api.info.description}}{{?}}
 
@@ -48,7 +49,8 @@ If an API request results in an error, data about the encountered error will be 
     'message': "The server encountered an unexpected condition."
 }
 ```
-|id|code|message|
+
+|ID|CODE|MESSAGE|
 |---|---|--|
 {{~responseKeys :rk }}|
 {{=data.api.components.responses[rk].content['application/json'].example.id}}|{{=data.api.components.responses[rk].content['application/json'].example.status}}|{{=data.api.components.responses[rk].content['application/json'].example.message}}|
